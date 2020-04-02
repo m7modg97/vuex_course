@@ -10,7 +10,11 @@
 
 <script>
     export default {
-        props: ['grades'],
+        computed: {
+            grades(){
+                return  this.$store.state.grades;
+            }
+        }
     }
 </script>
 

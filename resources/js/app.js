@@ -1,7 +1,4 @@
-
-window.Vue = require('vue');
-
-
+import Vue from 'vue'
 import RootComponent from './components/RootComponent.vue';
 Vue.component('root-component', RootComponent);
 
@@ -12,6 +9,12 @@ import ListTwo from './components/ListTwo.vue';
 Vue.component('list-two', ListTwo);
 
 
-const app = new Vue({
+
+
+import {store} from './store/store.js';
+
+new Vue({
+    store:store,
     el: '#app',
 });
+
