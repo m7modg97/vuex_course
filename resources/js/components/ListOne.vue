@@ -2,7 +2,7 @@
     <div>
        <ul>
            <li v-for="(grade,i) in grades" :key="i">
-               Name: {{grade.name}}, Degree: {{grade.degree}}
+               {{grade.name}}, {{grade.degree}}
            </li>
        </ul>
     </div>
@@ -12,7 +12,7 @@
     export default {
         computed: {
             grades(){
-                return  this.$store.state.grades;
+                return this.$store.getters.studentsFilter(90);
             }
         }
     }

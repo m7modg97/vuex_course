@@ -108,7 +108,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     grades: function grades() {
-      return this.$store.state.grades;
+      return this.$store.getters.studentsFilter(90);
     }
   }
 });
@@ -137,7 +137,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     grades: function grades() {
-      return this.$store.state.grades;
+      return this.$store.getters.alphabetDegree;
     }
   }
 });
@@ -1356,9 +1356,9 @@ var render = function() {
       _vm._l(_vm.grades, function(grade, i) {
         return _c("li", { key: i }, [
           _vm._v(
-            "\n           Name: " +
+            "\n           " +
               _vm._s(grade.name) +
-              ", Degree: " +
+              ", " +
               _vm._s(grade.degree) +
               "\n       "
           )
@@ -1396,9 +1396,9 @@ var render = function() {
       _vm._l(_vm.grades, function(grade, i) {
         return _c("li", { key: i }, [
           _vm._v(
-            "\n           Name: " +
+            "\n           " +
               _vm._s(grade.name) +
-              ", Degree: " +
+              ", " +
               _vm._s(grade.degree) +
               "\n       "
           )
@@ -14921,6 +14921,25 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
       name: "Harbi",
       degree: 88
     }]
+  },
+  getters: {
+    alphabetDegree: function alphabetDegree(state) {
+      var alphabetDegree = state.grades.map(function (grade) {
+        return {
+          name: grade.name,
+          degree: grade.degree >= 90 ? "A" : grade.degree >= 80 ? "B" : ""
+        };
+      });
+      return alphabetDegree;
+    },
+    studentsFilter: function studentsFilter(state) {
+      return function (degree) {
+        var studentsFilter = state.grades.filter(function (grade) {
+          return grade.degree > degree;
+        });
+        return studentsFilter;
+      };
+    }
   }
 });
 
