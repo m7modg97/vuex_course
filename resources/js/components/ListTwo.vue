@@ -11,8 +11,9 @@
 <script>
     export default {
         computed: {
-            grades(){
-                return this.$store.getters.alphabetDegree;
+         grades(){
+                return this.$store.getters['Students/alphabetDegree'];
+                // return this.$store.getters.alphabetDegree;
             }
         }
     }

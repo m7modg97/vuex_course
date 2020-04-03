@@ -13,12 +13,14 @@
     export default {
         computed: {
             grades(){
-                return this.$store.getters.studentsFilter(90);
+                return this.$store.getters['Students/studentsFilter'](90);
+                // return this.$store.getters.studentsFilter(90);
             }
         },
         methods:{
             addDegree(){
-                this.$store.dispatch("addDegree", 5);
+                this.$store.dispatch("Students/addDegree", 5);
+                //this.$store.dispatch("addDegree", 5);
             }
         }
     }
