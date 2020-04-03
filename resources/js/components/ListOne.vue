@@ -18,7 +18,7 @@
         },
         methods:{
             addDegree(){
-                this.$store.commit("addDegree", 5);
+                this.$store.dispatch("addDegree", 5);
             }
         }
     }

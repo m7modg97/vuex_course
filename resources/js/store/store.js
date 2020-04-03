@@ -36,6 +36,14 @@ export const store = new Vuex.Store({
                 grade.degree += payload;
             });
         }
-    }   
+    },
+
+    actions:{
+        addDegree: (state,payload) => {
+            setTimeout(() => {
+                state.commit('addDegree', payload);
+            }, 3000);
+        }
+    }
 })
 

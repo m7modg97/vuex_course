@@ -114,7 +114,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addDegree: function addDegree() {
-      this.$store.commit("addDegree", 5);
+      this.$store.dispatch("addDegree", 5);
     }
   }
 });
@@ -14964,6 +14964,13 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
       state.grades.forEach(function (grade) {
         grade.degree += payload;
       });
+    }
+  },
+  actions: {
+    addDegree: function addDegree(state, payload) {
+      setTimeout(function () {
+        state.commit('addDegree', payload);
+      }, 3000);
     }
   }
 });
