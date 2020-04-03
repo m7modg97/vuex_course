@@ -1,5 +1,6 @@
 <template>
     <div>
+        <button v-on:click="addDegree()">Add 5 Degrees</button>
        <ul>
            <li v-for="(grade,i) in grades" :key="i">
                {{grade.name}}, {{grade.degree}}
@@ -13,6 +14,11 @@
         computed: {
             grades(){
                 return this.$store.getters.studentsFilter(90);
+            }
+        },
+        methods:{
+            addDegree(){
+                this.$store.commit("addDegree", 5);
             }
         }
     }

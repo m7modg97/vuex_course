@@ -105,10 +105,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     grades: function grades() {
       return this.$store.getters.studentsFilter(90);
+    }
+  },
+  methods: {
+    addDegree: function addDegree() {
+      this.$store.commit("addDegree", 5);
     }
   }
 });
@@ -1351,6 +1357,18 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c(
+      "button",
+      {
+        on: {
+          click: function($event) {
+            return _vm.addDegree()
+          }
+        }
+      },
+      [_vm._v("Add 5 Degrees")]
+    ),
+    _vm._v(" "),
     _c(
       "ul",
       _vm._l(_vm.grades, function(grade, i) {
@@ -14910,7 +14928,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
       degree: 85
     }, {
       name: "Abdullah",
-      degree: 99
+      degree: 95
     }, {
       name: "Ahmad",
       degree: 93
@@ -14939,6 +14957,13 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
         });
         return studentsFilter;
       };
+    }
+  },
+  mutations: {
+    addDegree: function addDegree(state, payload) {
+      state.grades.forEach(function (grade) {
+        grade.degree += payload;
+      });
     }
   }
 });

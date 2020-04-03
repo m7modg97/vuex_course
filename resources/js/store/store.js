@@ -7,7 +7,7 @@ export const store = new Vuex.Store({
     state:{
         grades: [
             {name: "Mahmoud" , degree: 85},
-            {name: "Abdullah" , degree: 99},
+            {name: "Abdullah" , degree: 95},
             {name: "Ahmad" , degree: 93},
             {name: "Belal", degree: 81},
             {name: "Harbi" , degree: 88}
@@ -28,6 +28,14 @@ export const store = new Vuex.Store({
             var studentsFilter = state.grades.filter(grade => {return grade.degree > degree});
             return studentsFilter;
         },
-    }
+    },
+
+    mutations: {
+        addDegree: (state,payload) => {
+            state.grades.forEach(grade => {
+                grade.degree += payload;
+            });
+        }
+    }   
 })
 
